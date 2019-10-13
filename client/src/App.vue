@@ -1,31 +1,57 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="header">
+      <Header />
     </div>
-    <router-view/>
+    <router-view id="router-view" />
   </div>
 </template>
 
+<script lang="ts">
+import Vue from "vue";
+import Header from "@/components/Header.vue";
+export default Vue.extend({
+  components: {
+    Header
+  }
+});
+</script>
+
 <style>
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  height: 100vh;
+  width: 100vw;
+  background-color: whitesmoke;
 }
-#nav {
-  padding: 30px;
+#header {
+  height: 70px;
+  width: 100%;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+#router-view {
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center-vert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  margin: 10px;
+  background-color: white;
+  border-radius: 5px;
 }
 </style>
