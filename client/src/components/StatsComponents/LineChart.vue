@@ -28,6 +28,7 @@ export default Vue.extend({
 .line-chart {
   flex-direction: column;
   width: auto;
+  padding: 10px;
 }
 #title {
   font-size: 12px;

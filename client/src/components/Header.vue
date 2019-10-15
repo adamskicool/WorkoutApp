@@ -36,6 +36,7 @@ export default Vue.extend({
 .option {
   height: 100%;
   width: 150px;
+  transition: background-color 0.3s ease-in-out;
 }
 .option:hover {
   background-color: rgb(34, 67, 129);

@@ -53,5 +53,6 @@ body {
   margin: 10px;
   background-color: white;
   border-radius: 5px;
+  border: 2px rgb(235, 235, 235) solid;
 }
 </style>
