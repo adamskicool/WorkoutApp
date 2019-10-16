@@ -1,12 +1,14 @@
 require('dotenv').config();
 let express = require('express');
 let express_graphql = require('express-graphql');
+let cors = require('cors');
 let { schema } = require('./graphQL/schema.js');
 let { root } = require('./graphQL/root.js');
 
 
 //Create an express server and graphQL end-point
 var app = express();
+app.use(cors());
 app.use('/graphql', express_graphql({
     schema: schema,
     rootValue: root,

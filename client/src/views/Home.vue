@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Test />
     <div class="charts">
       <PieChart
         v-bind:id="3"
@@ -49,10 +50,12 @@
 import Vue from "vue";
 import LineChart from "@/components/StatsComponents/LineChart.vue";
 import PieChart from "@/components/StatsComponents/PieChart.vue";
+import Test from "@/components/Test.vue";
 export default Vue.extend({
   components: {
     LineChart,
-    PieChart
+    PieChart,
+    Test
   }
 });
 </script>

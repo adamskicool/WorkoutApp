@@ -21,6 +21,22 @@ let getWorkoutPresetById = async (args) => {
     return finalres;
 }
 
+let addWorkoutPreset = async ({ name, exercises }) => {
+    console.log(exercises);
+    let query = "INSERT INTO WorkoutPresets (name) VALUES ('" + name + "');";
+    let res = await conn.promise().query(query);
+    for (var i = 0; i < exercises.length; i++) {
+        await addPresetExercise({ workoutPresetId: res[0].insertId, exerciseId: exercises[i] });
+    }
+    return getWorkoutPresetById({ id: res[0].insertId })
+}
+
+let addPresetExercise = async ({ workoutPresetId, exerciseId }) => {
+    let query = "INSERT INTO PresetExercises (presetId, exerciseId) VALUES (" + workoutPresetId + ", " + exerciseId + ");";
+    await conn.promise().query(query);
+}
+
 module.exports = {
-    getWorkoutPresetById
+    getWorkoutPresetById,
+    addWorkoutPreset
 }

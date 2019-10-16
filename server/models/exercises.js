@@ -47,10 +47,31 @@ let getExerciseByTitle = async (args) => {
     return res[0];
 }
 
+/**
+ * 
+ * @param {*} param0 
+ */
+let addExercise = async ({ title, description, muscleAreaId }) => {
+    let query = "INSERT INTO Exercises (title, description, muscleAreaId) VALUES ('"
+        + title + "', '"
+        + description + "', "
+        + muscleAreaId + ");";
+    let res = await conn.promise().query(query);
+    return getExerciseById({ id: res[0].insertId })
+}
+
+/**
+ * 
+ * @param {*} param0 
+ */
+let removeExercise = async ({ id }) => {
+
+}
 
 module.exports = {
     getAllExercises,
     getExerciseById,
     getExercisesByMuscleAreaId,
-    getExerciseByTitle
+    getExerciseByTitle,
+    addExercise
 };
